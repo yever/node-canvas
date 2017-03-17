@@ -1011,6 +1011,18 @@ tests['font style variant weight size family'] = function (ctx) {
   ctx.fillText('normal normal normal 16px', 100, 100)
 }
 
+tests['small-caps'] = function (ctx) {
+  ctx.strokeStyle = '#666'
+  ctx.strokeRect(0, 0, 200, 200)
+  ctx.lineTo(0, 100)
+  ctx.lineTo(200, 100)
+  ctx.stroke()
+
+  ctx.font = 'small-caps 16px sans-serif'
+  ctx.textAlign = 'center'
+  ctx.fillText('small-caps', 100, 100)
+}
+
 tests['globalCompositeOperation source-over'] = function (ctx) {
   ctx.fillStyle = 'blue'
   ctx.fillRect(0, 0, 100, 100)

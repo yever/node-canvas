@@ -28,47 +28,47 @@ describe('Canvas', function () {
   it('.parseFont()', function () {
     var tests = [
         '20px Arial'
-      , { size: 20, unit: 'px', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 20, unit: 'px', family: 'Arial' }
       , '20pt Arial'
-      , { size: 26.666666666666668, unit: 'pt', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 26.666666666666668, unit: 'pt', family: 'Arial' }
       , '20.5pt Arial'
-      , { size: 27.333333333333332, unit: 'pt', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 27.333333333333332, unit: 'pt', family: 'Arial' }
       , '20% Arial'
-      , { size: 20, unit: '%', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 20, unit: '%', family: 'Arial' }
       , '20mm Arial'
-      , { size: 75.59055118110237, unit: 'mm', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 75.59055118110237, unit: 'mm', family: 'Arial' }
       , '20px serif'
-      , { size: 20, unit: 'px', family: 'serif' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 20, unit: 'px', family: 'serif' }
       , '20px sans-serif'
-      , { size: 20, unit: 'px', family: 'sans-serif' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 20, unit: 'px', family: 'sans-serif' }
       , '20px monospace'
-      , { size: 20, unit: 'px', family: 'monospace' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 20, unit: 'px', family: 'monospace' }
       , '50px Arial, sans-serif'
-      , { size: 50, unit: 'px', family: 'Arial,sans-serif' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 50, unit: 'px', family: 'Arial,sans-serif' }
       , 'bold italic 50px Arial, sans-serif'
-      , { style: 'italic', weight: 'bold', size: 50, unit: 'px', family: 'Arial,sans-serif' }
+      , { style: 'italic', variant: 'normal', weight: 'bold', size: 50, unit: 'px', family: 'Arial,sans-serif' }
       , '50px Helvetica ,  Arial, sans-serif'
-      , { size: 50, unit: 'px', family: 'Helvetica,Arial,sans-serif' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 50, unit: 'px', family: 'Helvetica,Arial,sans-serif' }
       , '50px "Helvetica Neue", sans-serif'
-      , { size: 50, unit: 'px', family: 'Helvetica Neue,sans-serif' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 50, unit: 'px', family: 'Helvetica Neue,sans-serif' }
       , '50px "Helvetica Neue", "foo bar baz" , sans-serif'
-      , { size: 50, unit: 'px', family: 'Helvetica Neue,foo bar baz,sans-serif' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 50, unit: 'px', family: 'Helvetica Neue,foo bar baz,sans-serif' }
       , "50px 'Helvetica Neue'"
-      , { size: 50, unit: 'px', family: 'Helvetica Neue' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 50, unit: 'px', family: 'Helvetica Neue' }
       , 'italic 20px Arial'
-      , { size: 20, unit: 'px', style: 'italic', family: 'Arial' }
+      , { style: 'italic', variant: 'normal', weight: 'normal', size: 20, unit: 'px', family: 'Arial' }
       , 'oblique 20px Arial'
-      , { size: 20, unit: 'px', style: 'oblique', family: 'Arial' }
+      , { style: 'oblique', variant: 'normal', weight: 'normal', size: 20, unit: 'px', family: 'Arial' }
       , 'normal 20px Arial'
-      , { size: 20, unit: 'px', style: 'normal', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: 'normal', size: 20, unit: 'px', family: 'Arial' }
       , '300 20px Arial'
-      , { size: 20, unit: 'px', weight: '300', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: '300', size: 20, unit: 'px', family: 'Arial' }
       , '800 20px Arial'
-      , { size: 20, unit: 'px', weight: '800', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: '800', size: 20, unit: 'px', family: 'Arial' }
       , 'bolder 20px Arial'
-      , { size: 20, unit: 'px', weight: 'bolder', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: 'bolder', size: 20, unit: 'px', family: 'Arial' }
       , 'lighter 20px Arial'
-      , { size: 20, unit: 'px', weight: 'lighter', family: 'Arial' }
+      , { style: 'normal', variant: 'normal', weight: 'lighter', size: 20, unit: 'px', family: 'Arial' }
     ];
 
     for (var i = 0, len = tests.length; i < len; ++i) {

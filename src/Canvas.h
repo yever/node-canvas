@@ -88,6 +88,7 @@ class Canvas: public Nan::ObjectWrap {
     static int EIO_AfterToBuffer(eio_req *req);
 #endif
     static PangoWeight GetWeightFromCSSString(const char *weight);
+    static PangoVariant GetVariantFromCSSString(const char *variant);
     static PangoStyle GetStyleFromCSSString(const char *style);
     static PangoFontDescription *ResolveFontDescription(const PangoFontDescription *desc);
 

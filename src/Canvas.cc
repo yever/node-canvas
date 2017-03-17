@@ -605,14 +605,17 @@ NAN_METHOD(Canvas::RegisterFont) {
   Local<String> family_prop = Nan::New<String>("family").ToLocalChecked();
   Local<String> weight_prop = Nan::New<String>("weight").ToLocalChecked();
   Local<String> style_prop = Nan::New<String>("style").ToLocalChecked();
+  Local<String> variant_props = Nan::New<String>("variant").ToLocalChecked();
 
   char *family = str_value(js_user_desc->Get(family_prop), NULL, false);
   char *weight = str_value(js_user_desc->Get(weight_prop), "normal", true);
   char *style = str_value(js_user_desc->Get(style_prop), "normal", false);
+  char *variant = str_value(js_user_desc->Get(variant_props), "normal", true);
 
-  if (family && weight && style) {
+  if (family && weight && style && variant) {
     pango_font_description_set_weight(user_desc, Canvas::GetWeightFromCSSString(weight));
     pango_font_description_set_style(user_desc, Canvas::GetStyleFromCSSString(style));
+    pango_font_description_set_variant(user_desc, Canvas::GetVariantFromCSSString(variant));
     pango_font_description_set_family(user_desc, family);
 
     std::vector<FontFace>::iterator it = _font_face_list.begin();
@@ -644,6 +647,7 @@ NAN_METHOD(Canvas::RegisterFont) {
   g_free(family);
   g_free(weight);
   g_free(style);
+  g_free(variant);
 }
 
 /*
@@ -757,6 +761,28 @@ Canvas::GetWeightFromCSSString(const char *weight) {
   }
 
   return w;
+}
+
+/*
+ * Get a PangoVariant from a CSS string ("normal", "small-caps", etc)
+ * Only "normal" and "small-caps" are supported.
+ */
+
+PangoVariant
+Canvas::GetVariantFromCSSString(const char *variant) {
+  PangoVariant v = PANGO_VARIANT_NORMAL;
+
+  if (strlen(variant) > 0) {
+    if (0 == strcmp("small-caps", variant) ||
+        0 == strcmp("all-small-caps", variant) ||
+        0 == strcmp("petite-caps", variant) ||
+        0 == strcmp("all-petite-caps", variant) ||
+        0 == strcmp("unicase", variant)) {
+      v = PANGO_VARIANT_SMALL_CAPS;
+    }
+  }
+
+  return v;
 }
 
 /*
